@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Micah Kova</title>
+    <link rel="icon" type="image/svg+xml" href="/content/MK.svg">
+    <link rel="stylesheet" href="looks.css">
+</head>
+
+  <body data-theme="light">
+  <header>
+    <img class="logo-light" src="/content/light_mode.png" alt="Micah Kova Logo" width="50" height="50">
+    <img class="logo-dark" src="/content/dark_mode.png" alt="Micah Kova Logo" width="50" height="50">
+
+    <div class="burger" id="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+      <audio id="clickSound" preload="auto">
+  <source src="/content/click.mp3" type="audio/mpeg">
+  <source src="/content/click.mp3" type="audio/mpeg">
+    </audio>
+          <audio id="soundClick" preload="auto">
+  <source src="/content/click.mp3" type="audio/mpeg">
+  <source src="/content/click.mp3" type="audio/mpeg">
+    </audio>
+        <div>
+      <ul id="nav">
+        <li><a href="/index.html">&#60Home/&#62</a></li>
+        <li><a href="/about.html">&#60About/&#62</a></li>
+        <li><a href="/contact.html">&#60Contact/&#62</a></li>
+        <li><button class="theme-toggle" id="themeToggle">
+            <span id="themeIcon">🌙</span></button></li>
+      </ul>
+    </div>
+  </header>
+    <section class="contact-section">
+      <h1>Contact Me</h1>
+      
+      <div class="contact-container">
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" placeholder="Name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message:</label>
+              <textarea id="message" name="message" placeholder="Message" rows="8" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+
+         <!-- Image Box - Right Column -->
+        <div class="contact-image-box">
+          <!-- Default image before submission -->
+          <img id="defaultImage" src="/content/me.jpeg" alt="Contact" class="">
+          <!-- Success image after submission (hidden by default) -->
+          <img id="successImage" src="/content/thanks.jpg" alt="Message Sent!" class="hidden">
+        </div>
+      </div>
+    </section>
+
+    </section>
+
+
+
+    <footer>
+    <h2>Lets Connect!</h2>
+    <div class="social-icons">
+    <button><a href="https://www.facebook.com/micahkova/" target="_blank"><img src="content/facebook.svg" alt="Facebook"></a></button>
+    <button><a href="https://www.linkedin.com/in/micah-kova-302b9b331/" target="_blank"><img src="content/linkedin.svg" alt="LinkedIn"></a></button>
+    <button><a href="https://github.com/micahkova" target="_blank"><img src="content/github.svg" alt="GitHub"></a></button>
+    <button><a href="https://substack.com/@thethinkerm" target="_blank"><img src="content/substack.svg" alt="Substack"></a></button>
+    </div>
+    <p>&copy; 2026 Micah Kova. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav');
+
+    burger.addEventListener('click', () => {
+      playClickSound();
+      burger.classList.toggle('active');
+      nav.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    const navLinks = nav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('active');
+        nav.classList.remove('active');
+      });
+    });
+    // Theme toggle
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const body = document.body;
+
+      // Check for saved theme preference or default to 'light'
+      const currentTheme = localStorage.getItem('theme') || 'light';
+      body.setAttribute('data-theme', currentTheme);
+      themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+      themeToggle.addEventListener('click', () => {
+        playSoundClick();
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+      });
+      
+  //function to play click sound
+      function playClickSound() {
+     const sound = document.getElementById('clickSound');
+     sound.currentTime = 0; // Reset to start
+     sound.play();
+ }
+    function playSoundClick() {
+     const sound = document.getElementById('soundClick');
+     sound.currentTime = 0; // Reset to start
+     sound.play();
+ }
+
+ // Form submission with image change
+      const contactForm = document.getElementById('contactForm');
+      const defaultImage = document.getElementById('defaultImage');
+      const successImage = document.getElementById('successImage');
+
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+      const formData = new FormData(contactForm);
+      formData.append("access_key", "b44887fd-3068-4c8b-a2e3-c3b191d8d42d");
+
+      const originalText = submitBtn.textContent;
+      // Hide default image and show success image
+        defaultImage.classList.add('hidden');
+        successImage.classList.remove('hidden');
+
+      submitBtn.textContent = "Sending...";
+      submitBtn.disabled = true;
+
+      try {
+          const response = await fetch("https://api.web3forms.com/submit", {
+              method: "POST",
+              body: formData
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Success! Your message has been sent.");
+            contactForm.reset();
+            // Reset images after 5 seconds
+         setTimeout(() => {
+         defaultImage.classList.remove('hidden');
+         successImage.classList.add('hidden');
+        }, 5000);
+        } else {
+            alert("Error: " + data.message);
+        }
+
+    } catch (error) {
+        alert("Something went wrong. Please try again.");
+    } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }
+});
+      //Adding sound to social media buttons
+    document.querySelectorAll('.social-icons button').forEach(button => {
+    button.addEventListener('click', playClickSound);
+});
+  </script>
+</html>

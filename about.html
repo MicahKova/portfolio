@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Micah Kova</title>
+    <link rel="icon" type="image/svg+xml" href="/content/MK.svg">
+    <link rel="stylesheet" href="looks.css">
+</head>
+  <body data-theme="light">
+  <header>
+    <img class="logo-light" src="/content/light_mode.png" alt="Micah Kova Logo" width="50" height="50">
+    <img class="logo-dark" src="/content/dark_mode.png" alt="Micah Kova Logo" width="50" height="50">
+
+    <div class="burger" id="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+
+        <div>
+      <ul id="nav">
+        <li><a href="/index.html">&#60Home/&#62</a></li>
+        <li><a href="/about.html">&#60About/&#62</a></li>
+        <li><a href="/contact.html">&#60Contact/&#62</a></li>
+        <li><button class="theme-toggle" id="themeToggle">
+            <span id="themeIcon">🌙</span></button></li>
+      </ul>
+    </div>
+  </header>
+
+  <audio id="clickSound" preload="auto">
+  <source src="/content/click.mp3" type="audio/mpeg">
+  <source src="/content/click.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="soundClick" preload="auto">
+  <source src="/content/click.mp3" type="audio/mpeg">
+  <source src="/content/click.mp3" type="audio/mpeg">
+    </audio>
+    <!-- Carousel Container -->
+    <div class="carousel-container">
+      <!-- Previous Button -->
+      <button class="carousel-btn prev-btn" id="prevBtn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+
+      <!-- Carousel Wrapper -->
+      <div class="carousel-wrapper">
+        <div class="carousel-track" id="carouselTrack">
+          
+          <!-- Slide 1 - Introduction -->
+          <div class="carousel-slide">
+            <div class="slide-number">01</div>
+            <div class="slide-content">
+              <h4 class="slide-subtitle">WELCOME TO MY WORLD</h4>
+              <h2 class="slide-title">Hey there!</h2>
+              <p class="slide-text">Hello! I'm Micah Kova, a passionate student of web development, design and everything in between. 
+              I truely would love to say I'm a frontend developer or backend developer, but I truely dont believe I can categorize myself in a particular category.
+              I am currently a student at the Cape Peninsula University of Technology, where I am trying to develop my skills and gain as much experience as possible.
+              This portfolio is a showcase of my projects, skills, and journey in the world of software development.
+              I am always eager to learn and grow, and I am excited to share my work with you.</p>
+              <button class="learn-more-btn"><a href="https://www.linkedin.com/in/micah-kova-302b9b331/" target="_blank">Some more About Me</a></button>
+            </div>
+          </div>
+
+          <!-- Slide 2 - My Skills -->
+          <div class="carousel-slide slide-gradient-dark">
+            <div class="slide-number">02</div>
+            <div class="slide-content">
+              <h4 class="slide-subtitle">EXPERTISE & CAPABILITIES </h4>
+              <h2 class="slide-title">My Skills</h2>
+              <p class="slide-text">I have a strong foundation in HTML, CSS, JavaScript and Java, and I am continuously expanding my knowledge in modern web development frameworks and technologies.
+              Ranging from React and Vue.js for frontend development to Node.js and Python for backend development, I am always eager to explore new tools and techniques to enhance my skills.
+              I am proficient in frontend development, creating responsive and visually appealing user interfaces.
+              I also have experience in backend development, working with databases and server-side programming through SQL and Python.
+              I have many small projects that I have worked on, and I am always looking for new opportunities to apply my skills and learn from real-world experiences.</p>
+              <button class="learn-more-btn"><a href="https://drive.google.com/file/d/18xatNoiyhCLRIW5oggyvMFm4wpfg5yWm/view?usp=drive_link" target="_blank">My Resume</a></button>
+            </div>
+          </div>
+
+          <!-- Slide 3 - Creative Skills -->
+          <div class="carousel-slide slide-gradient-coral">
+            <div class="slide-number">03</div>
+            <div class="slide-content">
+              <h4 class="slide-subtitle">SOME MORE CAPABILITIES</h4>
+              <h2 class="slide-title">Creative Abilities</h2>
+              <p class="slide-text">I have a passion for creative design and enjoy bringing ideas to life through visual storytelling.
+              I have experience in graphic design, creating visually appealing graphics and layouts using tools like Adobe Photoshop and Illustrator.
+              I also am skilled in UI/UX design, focusing on creating intuitive and user-friendly interfaces that enhance the user experience for this I use Figma and Canva.
+              I am always exploring new design trends and techniques to stay inspired and push the boundaries of creativity in my work.
+              I'm skilled in content creation, and I enjoy writing and sharing my thoughts on various topics related to web development and design through blogging and social media platforms.
+              </p>
+              <button class="learn-more-btn">Projects</button>
+            </div>
+          </div>
+
+          <!-- Slide 4 - My Skills -->
+          <div class="carousel-slide">
+            <div class="slide-number">04</div>
+            <div class="slide-content">
+              <h4 class="slide-subtitle">BUILT FOR THE MODERN WORLD</h4>
+              <h2 class="slide-title">Innovative Solutions</h2>
+              <p class="slide-text">I have completed several innovative projects that demonstrate my ability to create cutting-edge solutions for modern challenges.
+                I have developed games using JavaScript and Python, showcasing my creativity and problem-solving skills in the gaming industry.
+                I have also built web applications that leverage the latest technologies to provide seamless user experiences and solve real-world problems.
+                I am passionate about pushing the boundaries of what is possible with technology and am always looking for new opportunities to innovate and create impactful solutions that make a difference in the world.
+                I also have some startup experience, where I have been involved in the development of a few startups, contributing to the growth and success of these ventures through my technical skills and innovative ideas.
+              </p>
+              <button class="learn-more-btn"><a href="https://github.com/micahkova" target="_blank">My GitHub</a></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Next Button -->
+      <button class="carousel-btn next-btn" id="nextBtn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+
+      <!-- Dot Indicators -->
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </body>
+
+    <footer>
+      <h2>Lets Connect!</h2>
+      <div class="social-icons">
+        <button><a href="https://www.facebook.com/micahkova/" target="_blank"><img src="content/facebook.svg" alt="Facebook"></a></button>
+        <button><a href="https://www.linkedin.com/in/micah-kova-302b9b331/" target="_blank"><img src="content/linkedin.svg" alt="LinkedIn"></a></button>
+        <button><a href="https://github.com/micahkova" target="_blank"><img src="content/github.svg" alt="GitHub"></a></button>
+        <button><a href="https://substack.com/@thethinkerm" target="_blank"><img src="content/substack.svg" alt="Substack"></a></button>
+      </div>
+      <p>&copy; 2026 Micah Kova. All rights reserved.</p>
+    </footer>
+
+  <script>
+    // Burger menu
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav');
+
+    burger.addEventListener('click', () => {
+      playClickSound();
+      burger.classList.toggle('active');
+      nav.classList.toggle('active');
+    });
+
+    const navLinks = nav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('active');
+        nav.classList.remove('active');
+      });
+    });
+
+    // Carousel functionality
+    const track = document.getElementById('carouselTrack');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dotsContainer = document.getElementById('carouselDots');
+    
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    // Create dot indicators
+    slides.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.classList.add('dot');
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(index));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      
+      // Update dots
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+    function playClickSound() {
+     const sound = document.getElementById('clickSound');
+     sound.currentTime = 0; // Reset to start
+     sound.play();
+ }
+
+    function playSoundClick() {
+     const sound = document.getElementById('soundClick');
+     sound.currentTime = 0; // Reset to start
+     sound.play();
+ }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    //Optional: Auto-play
+    setInterval(nextSlide, 8000);
+    // Theme toggle
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const body = document.body;
+
+      // Check for saved theme preference or default to 'light'
+      const currentTheme = localStorage.getItem('theme') || 'light';
+      body.setAttribute('data-theme', currentTheme);
+      themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+      themeToggle.addEventListener('click', () => {
+        playSoundClick();
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+      });
+
+      document.querySelectorAll('.social-icons button').forEach(button => {
+   button.addEventListener('click', playClickSound);
+});
+  </script>
+</html>

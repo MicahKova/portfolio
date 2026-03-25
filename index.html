@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Micah Kova</title>
+    <link rel="icon" type="image/svg+xml" href="/content/MK.svg">
+    <link rel="stylesheet" href="looks.css">
+  </head>
+  <body data-theme="light">
+    <header>
+      <img class="logo-light" src="/content/light_mode.png" alt="Micah Kova Logo" width="50" height="50">
+      <img class="logo-dark" src="/content/dark_mode.png" alt="Micah Kova Logo" width="50" height="50">
+
+      <div class="burger" id="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+
+      <div>
+        <ul id="nav">
+          <li><a href="/index.html">&#60Home/&#62</a></li>
+          <li><a href="/about.html">&#60About/&#62</a></li>
+          <li><a href="/contact.html">&#60Contact&#62</a></li>
+          <li><button class="theme-toggle" id="themeToggle">
+              <span id="themeIcon">🌙</span></button></li>
+        </ul>
+      </div>
+    </header>
+    
+    <audio id="clickSound" preload="auto">
+      <source src="/content/click.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="soundClick" preload="auto">
+      <source src="/content/click.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="grid text-center">
+      <div class="g-col-6">
+        <h2>Welcome to My Portfolio!</h2>
+        <h3>I'm Micah Kova, a passionate student of web development, design and everything in between.</h3>
+        <p>An aspiring full stack developer with a love for creating beautiful and functional websites.<br> I am currently a student at the Cape Peninsula University of Technology,<br> where I am honing my skills in HTML, CSS, JavaScript, and more.<br>This portfolio is a showcase of my projects, skills, and journey in the world of web development.<br> Feel free to explore and connect with me!</p>
+        <button class="learnmore"><a href="/about.html">&#60Learn More about Me&#62</a></button>
+      </div>
+      <div class="g-col-6"><img src="/content/emote.gif" alt="Me"></div>
+    </div>
+
+    <footer>
+      <h2>Lets Connect!</h2>
+      <div class="social-icons">
+        <button><a href="https://www.facebook.com/micahkova/" target="_blank"><img src="content/facebook.svg" alt="Facebook"></a></button>
+        <button><a href="https://www.linkedin.com/in/micah-kova-302b9b331/" target="_blank"><img src="content/linkedin.svg" alt="LinkedIn"></a></button>
+        <button><a href="https://github.com/micahkova" target="_blank"><img src="content/github.svg" alt="GitHub"></a></button>
+        <button><a href="https://substack.com/@thethinkerm" target="_blank"><img src="content/substack.svg" alt="Substack"></a></button>
+      </div>
+      <p>&copy; 2026 Micah Kova. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const burger = document.getElementById('burger');
+      const nav = document.getElementById('nav');
+
+      burger.addEventListener('click', () => {
+        playClickSound();
+        burger.classList.toggle('active');
+        nav.classList.toggle('active');
+      });
+
+      // Close menu when clicking on a link
+      const navLinks = nav.querySelectorAll('a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          burger.classList.remove('active');
+          nav.classList.remove('active');
+        });
+      });
+
+      // Theme altering
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const logo = document.getElementById('logo');
+      const body = document.body;
+
+      // Check for saved theme preference or default to 'light'
+      const currentTheme = localStorage.getItem('theme') || 'light';
+      body.setAttribute('data-theme', currentTheme);
+      themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+      
+      themeToggle.addEventListener('click', () => {
+        playSoundClick();
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        
+        });
+
+      // Function to play click sound
+      function playClickSound() {
+        const sound = document.getElementById('clickSound');
+        sound.currentTime = 0;
+        sound.play();
+      }
+
+      function playSoundClick() {
+        const sound = document.getElementById('soundClick');
+        sound.currentTime = 0;
+        sound.play();
+      }
+
+      // Adding sound to social media buttons
+      document.querySelectorAll('.social-icons button').forEach(button => {
+        button.addEventListener('click', playClickSound);
+      });
+    </script>
+  </body>
+</html>
